@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html class="html">
+    <head>
+        <title>Train</title>
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/script/jquery.js"></script>
+        <script type="text/javascript" src="/script/schedule.js"></script>
+        <link href="/css/train.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body >
+    
+    <div style="width:100%; height:10%;">
+        <table  style="width:100%; height:100%;" border="2" align="left">
+            <tr style="width:100%; height:100%;"><td align="center">bhavin</td></tr>				
+        </table>
+        <br/>
+        <table border="1" style="width:100%; height:3%; margin-top: 10px; border-bottom-style: none;border-top-style: none;border-left-style: none; border-right-style: none; " align="left">
+            <tr style="width:100%; height:100%;" >
+            <td  class="menu_item" align="center"  id="home"  valign="top"><a href="/cgi-bin/home/index.cgi" ><table class="menu"><tr><td>Home</td></tr></table></a></td>
+                <td  class="menu_item" align="center" style="background-color:#ffcccc;" id="schedule"  valign="top"><a href="/cgi-bin/schedule/schedule.cgi" ><table class="menu"><tr><td>Schedule</td></tr></table></a></td>
+                <td  class="menu_item" align="center" id="fare"  valign="top"><a href="/cgi-bin/getfare/getfare.cgi" ><table class="menu"><tr><td>Get Fare</td></tr></table></a></td>
+                <td  class="menu_item" align="center" id="reserv"  valign="top"><a href="/cgi-bin/reservation/reservation.cgi" ><table class="menu"><tr><td>Reservation</td></tr></table></a></td>
+    </tr>				
+        </table>
+
+    </div>	
+
+        <div style="width:100%; height:90%;"><br>
+        <table style="width:100%; height:90%; border-bottom-style:outset; border-color:brown; "  >
+            
+            <tr ><td  style="width:15%; height:50%;  border: none;">
+                    <form onsubmit="return schedule_submit();" method="get"   action="/cgi-bin/schedule/schedule.cgi"> 
+                    <table style="width: 100% ;height: 200px;border: 2px;    margin-bottom:300px;" >
+                        <tr style="width: 100% ;height: 20%;">
+                         <td style="width:100%;  color:brown;" align="center" >Source Station</td>
+                        </tr>
+                        <tr style="width: 100% ;height: 20%;" align="center">
+                            <td style="width:100%; color:brown;">
+                                <select id="tr_source_drop_down" name="tr_source_drop_down" style="width:150px;font-size:14px;color:brown; background-color: white; border-style:outset;" >
+                                                         <option value="">-select-</option>
+                                                          <TMPL_LOOP NAME=TRAIN_SOURCE>
+                                                           <option value="<TMPL_VAR NAME=TR_SOURCE_CODE>"><TMPL_VAR NAME=TR_SOURCE> - <TMPL_VAR NAME=TR_SOURCE_CODE></option>
+                                                           </TMPL_LOOP>
+                                                 </select>
+                            </td>
+                        </tr>
+                        <tr style="width: 100% ;height: 20%;">
+                         <td style="width:100%;  color:brown;" align="center" >Dest. Station</td>
+                        </tr>
+                        <tr style="width: 100% ;height: 20%;">
+                            <td style="width:100%; color:brown;" align="center">
+                                <select id="tr_dest_drop_down" name="tr_dest_drop_down" style="width:150px;font-size:14px;color:brown; background-color: white; border-style:outset;" >
+                                                         <option value="">-select-</option>
+                                                          <TMPL_LOOP NAME=TRAIN_DEST>
+                                                           <option value="<TMPL_VAR NAME=TR_DEST_CODE>"><TMPL_VAR NAME=TR_DEST> - <TMPL_VAR NAME=TR_DEST_CODE></option>
+                                                           </TMPL_LOOP>
+                                </select>
+                            </td>
+                        </tr>
+                         <tr style="width: 100% ;height: 20%;">
+                            <td style="width:100%; color: brown;" align="center">
+                                <input type="submit" style="color: brown;font-size:14px;" name="button" value="Submit" />
+                            </td>
+                        </tr>
+                    </table>
+                        </form>
+                </td>
+                <td rowspan="2">   
+                   <div class="visible" style="width: 100%;height: 100%;">
+                     <table  style=" width:95%; height:95%;   margin-top: 29px; margin-left: 20px; background-color: white; border-bottom-style:none;border-right-style: none;border-left-style:outset;border-top-style:outset; border-left-color: brown;border-top-color: brown; " >
+                        <tr style="height: 40%;"  border="none">
+                        <td align="center"><img src="/image/train_staion.JPG"/></td>
+                    </tr>
+                    <tr style="height: 60%;"><td>&nbsp;
+                        <div style="width:900px;height:400px;overflow:auto;" class="schedule_div" >
+                          <form name="train_schedule" method="get" onsubmit="return train_no_submit();" action="/cgi-bin/schedule/schedule.cgi">
+                               <table border="1" style="width:80%; margin-left:10%; ">
+                                <tr style="color:white;background: brown; text-align:center;  ">
+                                    <td style="width:12%; ">Train NO.</td>
+                                    <td style="width:30%; ">Train NAME</td>
+                                    <td style="width:30%; ">ARRIVAL TIME</td>
+                                    <td style="width:30%; ">DEP. TIME</td>
+                                </tr>
+                                    <TMPL_LOOP NAME=STATION_SCHEDULE>
+                                    <tr style="color:brown;text-align:center;  ">
+                                    <td style="width:12%; "><input type="radio" value=<TMPL_VAR NAME=TRAIN_NO> name="tr_no" /><TMPL_VAR NAME=TRAIN_NO></td>
+                                    <td style="width:30%; "><TMPL_VAR NAME=TRAIN_NAME></td>
+                                    <td style="width:30%; "><TMPL_VAR NAME=ARR></td>
+                                    <td style="width:30%; "><TMPL_VAR NAME=DEP></td>
+                                </tr>
+                                </TMPL_LOOP>
+                             
+                               </table>
+                               <div style="text-align:center; margin-top:30px;"> <input type="submit" style="color: brown;font-size:14px;" name="button" value="Get Train Schedule" /></div>
+                               </form>
+                        </div>    
+                        </td></tr>
+                   </table>
+                </div>
+                <div class="invisible" style="width: 100%;height: 100%;" >
+                  <table  style=" width:95%; height:95%;   margin-top: 29px; margin-left: 20px; background-color: white; border-bottom-style:none;border-right-style: none;border-left-style:outset;border-top-style:outset; border-left-color: brown;border-top-color: brown; " >
+                    <tr style="height: 60%;"><td>&nbsp;
+                        <div style="width:900px;height:650px;overflow:auto;" class="schedule_div">
+                         
+                               <table border="1" style="width:80%; margin-left:10%; ">
+                                <tr style="color:white;background: brown; text-align:center;  ">
+                                    <td style="width:12%; ">Train NO.</td>
+                                    <td style="width:12%; ">St. code</td>
+                                    <td style="width:12%; ">DISTANCE(KM)</td>
+                                    <td style="width:12%; ">ARR.TIME</td>
+                                    <td style="width:12%; ">DEP.TIME</td>
+                                    <td style="width:12%; ">DAY</td>
+                                    <td style="width:28%; ">STATE</td>
+                                
+                                </tr>
+                                    <TMPL_LOOP NAME=TRAIN_SCHEDULE>
+                                    <tr style="color:brown;text-align:center;  ">
+                                    <td style="width:12%; "><TMPL_VAR NAME=TRAIN_NO></td>
+                                    <td style="width:12%; "><TMPL_VAR NAME=ST_CODE></td>
+                                    <td style="width:12%; "><TMPL_VAR NAME=DISTANCE></td>
+                                    <td style="width:12%; "><TMPL_VAR NAME=ARR_TIME></td>
+                                    <td style="width:12%; "><TMPL_VAR NAME=DEP_TIME></td>
+                                    <td style="width:12%; "><TMPL_VAR NAME=DAY></td>
+                                    <td style="width:28%; "><TMPL_VAR NAME=STATE></td>
+                                    </tr>
+                                </TMPL_LOOP>
+                             
+                               </table>
+                   </div>
+          </td>
+            </tr>
+            <tr> <td style="height: 50%;">&nbsp</td></tr>
+        </table>
+    </div>
+        </td></tr></table>
+            
+</div>
+       <div>
+            <footer>
+                <h10>bhavin</h10>
+            </footer>
+        </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html class="html">
+    <head>
+        <title>Train</title>
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/script/jquery.js"></script>
+        <link href="/css/train.css" rel="stylesheet" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="/css/calendar.css"  media="screen" />
+        <script type="text/javascript" src="/script/calendar.js"></script>
+        <link rel="ICON" href="/image/favicon.ico" />
+    </head>
+
+    <body>
+
+        <div style="width:100%; height:10%;">
+            <table  style="width:100%; height:100%;"  align="left">
+                <tr style="width:100%; height:100%;"><td align="center"><image src="/image/main_header_big3_white.jpg" alr="Header"></td></tr>				
+            </table>
+            <table border="1" style="width:100%; height:3%; margin-top: 10px; border-bottom-style: none;border-top-style: none;border-left-style: none; border-right-style: none; " align="left">
+                <tr style="width:100%; height:100%;" >
+                    <td  class="menu_item" align="center"  id="home"  valign="top"><a href="/cgi-bin/home/index.cgi" ><div class="menu">Home</div></a></td>
+                    <td  class="menu_item" align="center" id="schedule"  valign="top"><a href="/cgi-bin/schedule/schedule.cgi" ><div class="menu">Schedule</div></a></td>
+                    <td  class="menu_item" align="center" style="background-color:#ffcccc;" id="fare"  valign="top"><a href="/cgi-bin/getfare/getfare.cgi" ><div class="menu">Get Fare</div></a></td>
+                    <td  class="menu_item" align="center" id="reserv"  valign="top"><a href="/cgi-bin/reservation/reservation.cgi" ><div class="menu">Reservation</div></a></td>
+                </tr>				
+            </table>
+
+        </div>	
+
+        <div style="width:100%; height:70%; padding-top:80px;">
+            <table style="width:70%;height: 100%;  margin-left: 200px; border-style:dashed; border-color: brown;">
+                <tr><td valign="center" align="center">
+                        <table style="width:80%;height:90%; text-align:center;">
+                            <tr  style="height:30%;"><td valign="top">
+                                    <table border="1" style="width:100%;height:20%; text-align:center;" >
+                                        <tr style="height:30px; color:white; background-color:brown;" >
+                                            <td> Train Number
+                                            </td>
+                                            <td> Train Name
+                                            </td>
+                                            <td> Date
+                                            </td>
+                                            <td> Source
+                                            </td>
+                                            <td> Destination
+                                            </td>
+                                        </tr>
+                                        <tr style="height:30px; color:brown;">
+                                            <td><TMPL_VAR NAME=TR_NO>
+                                            </td>
+                                            <td><TMPL_VAR NAME=TR_NAME>
+                                                </td>
+                                                <td><TMPL_VAR NAME=DATE>
+                                                    </td>
+                                                    <td><TMPL_VAR NAME=TR_SOURCE>
+                                                        </td>
+                                                        <td><TMPL_VAR NAME=TR_DEST>
+                                                            </td>
+                                                            </tr>
+                                                            </table>
+                                                            </td>
+                                                            </tr>
+
+
+                                                            <tr style="height:30%;">
+                                                                <td align="center" valign="top">
+                                                                    <table border="1" style="width:50%;height:20%; text-align:center;" >
+                                                                        <tr style="height:30px; color:white; background-color:brown;" >
+                                                                            <td> Train Type
+                                                                            </td>
+                                                                            <td> Distance
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr style="height:30px; color:brown;">
+                                                                            <td><TMPL_VAR NAME=TR_TYPE>
+                                                                            </td>
+                                                                            <td><TMPL_VAR NAME=DIST>
+                                                                                </td>
+                                                                                </tr>
+                                                                                </table>
+
+                                                                                </td>
+                                                                                </tr>
+                                                                                <tr style="height:40%;">
+                                                                                    <td align="center" valign="center">
+                                                                                        <table border="1" style="width:50%;height:20%; text-align:center;" >
+                                                                                            <tr style="height:30px; color:white; background-color:brown;" >
+                                                                                                <td> Fare
+                                                                                                </td>
+                                                                                                <td> Class -<TMPL_VAR NAME=CLASS>
+                                                                                                </td>
+                                                                                                </tr>
+                                                                                                <tr style="height:30px; color:brown;">
+                                                                                                    <td> Base fare
+                                                                                                    </td>
+                                                                                                    <td><TMPL_VAR NAME=FARE>
+                                                                                                    </td>
+                                                                                                    </tr>
+                                                                                                    <tr style="height:30px; color:brown;">
+                                                                                                        <td> Reservation Charges
+                                                                                                        </td>
+                                                                                                        <td>20
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr style="height:30px; color:brown;">
+                                                                                                        <td> Superfast Charges
+                                                                                                        </td>
+                                                                                                        <td><TMPL_VAR NAME=SUPER_CHARGE>
+                                                                                                        </td>
+                                                                                                        </tr>
+                                                                                                        <tr style="height:30px; color:brown;">
+                                                                                                            <td> Concession
+                                                                                                            </td>
+                                                                                                            <td><TMPL_VAR NAME=CONC> 
+                                                                                                            </td>
+                                                                                                            </tr>
+                                                                                                            <tr style="height:30px; color:brown;">
+                                                                                                                <td> Total Amount
+                                                                                                                </td>
+                                                                                                                <td><TMPL_VAR NAME=TOTAL>
+                                                                                                                </td>
+                                                                                                                </tr>
+
+                                                                                                                </table>
+
+                                                                                                                </td>
+                                                                                                                </tr>
+
+                                                                                                                </table>
+                                                                                                                </td>
+                                                                                                                </tr>
+                                                                                                                </table>
+                                                                                                                </div>
+
+                                                                                                                <footer style="color:brown; text-align:center;border-top-style: solid; margin-top:55px;"><b>Thank you For using this web-site</b></footer>
+
+                                                                                                                </body>
+                                                                                                                </html>

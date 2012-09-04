@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html style="width:550px;height: 400px; alignment-adjust: central;">
+    <head><link rel="ICON" href="/image/favicon.ico" />
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript">
+       $(document).ready(function() {
+     noBack();
+});
+
+function noBack() {
+    window.history.forward(-2);
+    }
+
+        </script>
+    </head>
+
+    <body style="width: 100%;height: 100%;" onload="javascript:window.history.forward(-2);">
+        <div style="width: 100%;height: 100%;" >
+        <table style="width: 100%;height:100% ; color: brown; border-style:solid;" >
+            <tr style="width: 100%;height: 12%; "><td style="width: 100%;height: 12%; " colspan="2"><image src="/image/tickit_header.jpg" /></td></tr> 
+
+            <tr style="width: 100%;height: 12%; "><td style="width:50%;height: 12%; ">Reservation Number : result[0]</td>
+            <td style="width: 50%;height: 12%;">Date : result[1]</td></tr>
+
+            <tr style="width: 100%;height: 12%; "><td style="width: 50%;height: 12%; ">Name : result[2]</td> 
+                <td style="width: 50%;height: 12%;">Train No : result[3]</td></tr>
+
+            <tr style="width: 100%;height: 12%; "><td style="width: 100%;height: 12%; " colspan="2">Source : result[4]</td></tr> 
+
+            <tr style="width: 100%;height: 12%; "><td style="width: 100%;height: 12%; " colspan="2">Destination : result[5]</td></tr>
+
+            <tr style="width: 100%;height: 12%; "><td style="width: 50%;height: 12%; ">Class : result[6]</td> 
+            <td style="width: 50%;height: 12%;">Quota : result[7]</td></tr>
+
+            <tr style="width: 100%;height: 12%; "><td style="width: 100%;height: 12%; ">Seat Number : result[8]</td></tr> 
+
+             <tr style="width: 100%;height: 12%; "><td style="width: 50%;height: 12%; ">Distance : result[10]</td>
+            <td style="width: 50%;height: 12%;">Amount : result[9]</td></tr> 
+
+       
+        <tr style="width: 100%;height: 12%; color: brown; text-align:center;  " class="print_div" >
+            <td onclick="printpage();" style="cursor: pointer;" colspan="2">Print</td></tr>
+        </table>
+    </div>
+
+    </body>
+</html>
