@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html class="html">
+    <head>
+        <title>Train</title>
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/script/jquery.js"></script>
+        <link href="/css/train.css" rel="stylesheet" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="/css/calendar.css"  media="screen" />
+        <script type="text/javascript" src="/temp/calendar.js"></script>
+        <link rel="ICON" href="/image/favicon.ico" />
+    </head>
+
+    <body onload="javascript:window.history.forward(-2);">
+
+        <div style="width:100%; height:10%;">
+            <table  style="width:100%; height:100%;"  align="left">
+                <tr style="width:100%; height:100%;"><td align="center"><image src="/image/main_header_big3_white.jpg" alr="Header"></td></tr>				
+            </table>
+
+            <table border="1" style="width:100%; height:3%; margin-top: 10px; border-bottom-style: none;border-top-style: none;border-left-style: none; border-right-style: none; " align="left">
+                <tr style="width:100%; height:100%;" >
+                    <td  class="menu_item" align="center"  id="home"  valign="top"><a href="/cgi-bin/home/index.cgi" ><div class="menu">Home</div></a></td>
+                    <td  class="menu_item" align="center" id="schedule"  valign="top"><a href="/cgi-bin/schedule/schedule.cgi" ><div class="menu">Schedule</div></a></td>
+                    <td  class="menu_item" align="center"  id="fare"  valign="top"><a href="/cgi-bin/getfare/getfare.cgi" ><div class="menu">Get Fare</div></a></td>
+                    <td  class="menu_item" align="center" style="background-color:#ffcccc;" id="reserv"  valign="top"><a href="/cgi-bin/reservation/reservation.cgi" ><div class="menu">Reservation</div></a></td>
+                </tr>				
+            </table>
+
+        </div>	
+
+        <div style="width:100%; height:84.5%; ">
+            <form style="width:100%;height: 80%; padding-top: 150px;" action="/cgi-bin/reservation/login.cgi" method="post" >
+                <table style="width:60%;height: 75%;   margin-left: 230px; border-style:dashed; border-color: brown;">
+                    <tr style="width:60%;height: 75%;" ><td valign="center" align="center" style="width:70%;height: 100%;">
+                            <table style="width:80%;height: 80%; margin-left: auto;margin-right: auto; color: brown"  >
+                                <tr style="width:100%;height: 20%;">
+                                    <td colspan="2" align="center" style="border-bottom-style: inset; border-bottom-color: brown;">
+                                        <h1 > Log In</h1>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="login">
+                                        User Name :
+                                    </td>
+                                    <td class="login">
+                                        <input type="text" value="" name="username" id="username" required="required" style="width:80%; background-color: white; color: brown; font-size: 14px;" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="login">
+                                        Password :
+                                    </td>
+                                    <td class="login">
+                                        <input type="password" name="password" required="required" style="width:80%; background-color: white; color: brown; font-size: 14px;" >
+                                    </td>
+                                <tr>  <td colspan="2" align="center">    <span style="color:red;"><TMPL_VAR NAME=LOGIN_ERROR></span>
+                                    </td></tr>
+                    </tr>
+                    <tr>
+                        <td class="login" >
+                            <p style="cursor:pointer;" onclick="send_password();">  Forget Password? <image src="/image/progress.gif" style="width:15px;height: 15px; display:none;" id="progress"/> </p>
+                        </td>
+                        <td class="login">
+                            <a href="registration.cgi">Not a Member?</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Login" style="color: brown; width: 30%; font-size: 14px;">
+                        </td>
+                    </tr>
+
+                </table>
+                </td>
+                </tr>
+                </table>
+            </form>
+        </div>
+
+        <footer style="color:brown; text-align:center;border-top-style: solid; margin-top:50px;"><b>Thank you For using this web-site</b></footer>
+
+
+    </body>
+</html>

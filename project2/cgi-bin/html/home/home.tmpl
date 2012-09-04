@@ -1,0 +1,138 @@
+<!DOCTYPE html >
+<html class="html">
+    <head>
+        <title>Train</title>
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/script/jquery.js"></script>
+        <link href="/css/train.css" rel="stylesheet" type="text/css" />
+        <link rel="ICON" href="/image/favicon.ico" />
+    </head>
+
+    <body >
+
+        <div style="width:100%; height:10%;">
+            <table  style="width:100%; height:100%;"  align="left">
+                <tr style="width:100%; height:100%;"><td align="center"><image src="/image/main_header_big3_white.jpg" alr="Header"></td></tr>				
+            </table>
+            <br/>
+            <table border="1" style="width:100%; height:3%; margin-top: 10px; border-bottom-style: none;border-top-style: none;border-left-style: none; border-right-style: none; " align="left">
+                <tr style="width:100%; height:100%;" >
+                    <td  class="menu_item" align="center" style="background-color:#ffcccc;" id="home"  valign="top"><a href="/cgi-bin/home/index.cgi" ><div class="menu">Home</div></a></td>
+                    <td  class="menu_item" align="center" id="schedule"  valign="top"><a href="/cgi-bin/schedule/schedule.cgi" ><div class="menu">Schedule</div></a></td>
+                    <td  class="menu_item" align="center" id="fare"  valign="top"><a href="/cgi-bin/getfare/getfare.cgi" ><div class="menu">Get Fare</div></a></td>
+                    <td  class="menu_item" align="center" id="reserv"  valign="top"><a href="/cgi-bin/reservation/reservation.cgi" ><div class="menu">Reservation</div></a></td>
+                </tr>				
+            </table>
+
+        </div>	
+
+        <div style="width:100%; height:85%;"><br>
+            <table style="width:100%; height:95%; border-bottom-style:outset; border-color:brown; "  >
+
+                <tr ><td  style="width:15%; height:30%;  border: none; padding-top:25px;" valign="top">
+                        <table class="home_menu" style="width:100%; height:150px;" border="1">
+                            <tr style="height: 30px; color:white; background-color:brown;"><th>Information</th></tr>
+                            <tr style="height: 30px; "><td class="menu_item" align="center" style="background-color:#ffcccc;" id="train_info"  ><a href="/cgi-bin/home/index.cgi" ><div class="menu">Train Information</div></a></td></tr>
+                            <tr style="height: 30px; "><td class="menu_item" align="center"  id="seat_info"  ><a href="/cgi-bin/home/seat_availability.cgi"><div class="menu">Seat Availability</div></a></td></tr>
+                        </table>
+                    </td>
+                    <td style="width:85%; height:100%;" >   
+                        <table  style=" width:95%; height:95%;   margin-top: 20px; margin-left: 20px;  border-bottom-style:none;border-right-style: none;border-left-style:outset;border-top-style:outset; border-left-color: brown;border-top-color: brown; " >
+                            <tr style="height: 40%;"  border="none">
+                                <td align="center"><img src="/image/train_staion.JPG"/></td>
+                            </tr>
+                            <tr style="height: 60%;"><td style="height: 60%;">
+                                    <form name="train_info" onsubmit="return search_validation();" style="width: 100%;height: 87%;" action="/cgi-bin/home/train_info.cgi" method="post">
+                                        <table class="form" style="height: 100%;">
+                                            <tr style="height:50%;">
+                                                <td  align="center">
+                                                    <table ><tr>    
+                                                            <td style="width: 40%; color: brown;">Train Number:</td>
+                                                            <td style="width: 60%; color: brown;">
+                                                                <select id="tr_no_drop_down" name="tr_no_drop_down" onchange="javascript:train_no_name_validation();" style="color:brown; width:150px;font-size:14px; background-color: white; border-style:outset;" >
+                                                                    <option value="">-select-</option>
+                                                                    <TMPL_LOOP NAME=TRAIN_NO>
+                                                                        <option value="<TMPL_VAR NAME=TR_NO>"><TMPL_VAR NAME=TR_NO></option>
+                                                                    </TMPL_LOOP>
+                                                                </select>
+
+                                                            </td>    
+                                                        </tr> </table>
+                                                </td>
+                                                <td  align="center">
+                                                    <table><tr>    
+                                                            <td style="width: 40%; color: brown;">Train Name:</td>
+                                                            <td style="width: 60%; color: brown;">
+                                                                <select id="tr_name_drop_down" name="tr_name_drop_down" onchange="javascript:train_no_name_validation();" style="color:brown;width:150px;font-size:14px; background-color: white; border-style:outset;" >
+                                                                    <option value="">-select-</option>
+                                                                    <TMPL_LOOP NAME=TRAIN_NAME>
+                                                                        <option value="<TMPL_VAR NAME=TR_NAME>"><TMPL_VAR NAME=TR_NAME></option>
+                                                                    </TMPL_LOOP>
+                                                                </select>
+
+                                                            </td>    
+                                                        </tr> </table>
+
+                                                </td>
+                                            </tr>
+                                            <tr style="width: 100%;height:30%;">
+                                                <td align="center">
+                                                    <table><tr>    
+                                                            <td style="width: 40%; color: brown;" align="left">Class:</td>
+                                                            <td style="width: 60%; color: brown;">
+                                                                <select id="tr_class_drop_down" name="tr_class_drop_down" onchange="javascript:train_class_validation();" style="color:brown;width:150px;font-size:14px; background-color: white; border-style:outset;" >
+                                                                    <option value="">-select-</option>
+                                                                    <option value="FIRST AC">FIRST AC</option>
+                                                                    <option value="SECOND AC">SECOND AC</option>
+                                                                    <option value="THIRD AC">THIRD AC</option>
+                                                                    <option value="FIRST CLASS">FIRST CLASS</option>
+                                                                    <option value="SLEEPER CLASS">SLEEPER CLASS</option>
+                                                                    <option value="SECOND SEATING">SECOND SEATING</option>
+
+                                                                </select>
+
+                                                            </td>    
+                                                        </tr> </table>
+                                                </td>
+                                                <td align="center">
+                                                    <table><tr>    
+                                                            <td style="width: 40%; color: brown;" align="left">Quota:</td>
+                                                            <td style="width: 60%; color: brown;">
+                                                                <select id="tr_quota_drop_down" onchange="javascript:train_quota_validation();" name="tr_quota_drop_down" style="color:brown;width:150px;font-size:14px; background-color: white; border-style:outset;" >
+                                                                    <option value="">-select-</option>
+                                                                    <option value="GENERAL QUOTA">GENERAL QUOTA</option>
+                                                                    <option value="Ladies Quota">Ladies Quota</option>
+                                                                    <option value="Defence Quota">Defence Quota</option>
+                                                                    <option value="Duty Pass Quota">Duty Pass Quota</option>
+                                                                    <option value="Handicaped Quota">Handicaped Quota</option>
+                                                                    <option value="Parliament House Quota">Parliament House Quota</option>
+                                                                    <option value="Lower Berth Quota">Lower Berth Quota</option>
+                                                                    <option value="xYuva Quotayz">Yuva Quota</option>
+                                                                </select>
+
+                                                            </td>    
+                                                        </tr> </table>
+
+                                                </td>
+                                            </tr>
+                                            <tr  style="width:100%;height:30%;">
+                                                <td colspan="2" align="center" >
+                                                    <input style="width: 30%; color: brown;font-size:14px;" type="submit" id="train_info_submit"  value="Search" />    
+
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </form>
+
+                                </td></tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+        <footer style="color:brown; text-align:center;"><b>Thank you For using this web-site</b></footer>    
+    </body>
+</html>

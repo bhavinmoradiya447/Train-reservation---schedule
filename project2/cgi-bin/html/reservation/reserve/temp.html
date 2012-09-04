@@ -1,0 +1,179 @@
+<html class="html">
+    <head>
+        <title>Train</title>
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/script/jquery.js"></script>
+        <link href="/css/train.css" rel="stylesheet" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="/css/calendar.css"  media="screen" />
+       <script type="text/javascript" src="/script/calendar.js"></script>
+    </head>
+
+    <body >
+    
+    <div style="width:100%; height:10%;">
+        <table  style="width:100%; height:100%;" border="2" align="left">
+            <tr style="width:100%; height:100%;"><td align="center">bhavin</td></tr>				
+        </table>
+        <br/>
+        <table  style="width:100%; height:3%;color:brown; margin-top: 10px; border-bottom-style: none;border-top-style: none;border-left-style: none; border-right-style: none; " align="left">
+            <tr style="width:1000px; height:100%;" >
+                <td></td><td style="width:30%; text-align: right; border-right-style:double; border-width: 2;  border-right-color: brown; ">bhavin</td><td style="width:10%; text-align: center;border-width: 2; border-right-style:double; border-right-color: brown; ">Setting</td><td style="width:10%; text-align: center; ">Log Out</td>
+                
+            </tr>				
+        </table>
+
+    </div>	
+        
+        <div><br/>
+            <form name="reserve" action="" method="post" >
+            <table  style="width:60%;height: 60%; margin-top: 100px; margin-left: 230px; color:brown;">
+                <tr>
+                     <td style="width:20%; height:5%; text-align: center;border-width: 2; border-left-style:outset; border-top-style:outset;
+                        border-right-style: inset; border-color: brown;border-width: 2; ">
+                        <a href="/cgi-bin/reservation/reserve/reserve.cgi"  class="menu_item">
+                            <table style="color: brown; width: 100%;"><tr><td style=" text-align: center;">        Reserve  </td></tr></table></a>
+                    </td>
+                    <td style="width:20%; height:5%; text-align: center;border-left-style:outset; border-top-style:outset; 
+                        border-right-style: inset; border-color: brown;border-bottom-style:inset; border-width: 2; ">
+                        <a href="/cgi-bin/reservation/cancel/cancel.cgi" class="menu_item">
+      <table style="color: brown;width: 100%;"><tr><td style=" text-align: center;">        Cancel  </td></tr></table></a>
+                    </td>
+                    <td style="width:20%; height:5%; text-align: center;border-left-style:outset; border-top-style:outset; 
+                        border-right-style: inset; border-color: brown;border-bottom-style:inset; border-width: 2; ">
+                        <a href="/reservation/status/temp.html" class="menu_item">
+      <table style="color: brown;width: 100%;"><tr><td style=" text-align: center;">        Status  </td></tr></table></a>
+                    </td>
+                
+                    <td style="border-width: 2; border-bottom-style:inset; border-color: brown;">&nbsp;</td></tr>
+                <tr><td colspan="4">
+              <table  style="width:100%;height: 100%; border-left-style:outset; border-bottom-style:inset;border-right-style: inset;   border-width: 2; border-color: brown;">
+                  
+                  <tr><td>  
+               <table  style="width:80%;height: 80%; margin-left: 65px; margin-top:-30;  color: brown" >
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Train Number:
+                    </td>
+                    <td style="width:50%;" align="center">
+                         <select id="tr_no_drop_down" name="tr_no_drop_down" class="fare_dd" >
+                                                         <option value="">-select-</option>
+                                                          <TMPL_LOOP NAME=TRAIN_NO>
+                                                           <option value="<TMPL_VAR NAME=TR_NO>"><TMPL_VAR NAME=TR_NO></option>
+                                                           </TMPL_LOOP>
+                                                 </select>
+                    </td>
+                </tr>    
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Source Station:
+                    </td>
+                    <td style="width:50%;" align="center">
+                        <select id="tr_source_drop_down" name="tr_source_drop_down" class="fare_dd" >
+                           <option value="">-select-</option>
+                           <TMPL_LOOP NAME=TRAIN_SOURCE>
+                           <option value="<TMPL_VAR NAME=TR_SOURCE>"><TMPL_VAR NAME=TR_SOURCE></option>
+                           </TMPL_LOOP>
+                         </select>
+                    </td>
+                </tr>    
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Destination Staition:
+                    </td>
+                    <td style="width:50%;" align="center">
+                        <select id="tr_dest_drop_down" name="tr_dest_drop_down" class="fare_dd">
+                                                         <option value="">-select-</option>
+                                                          <TMPL_LOOP NAME=TRAIN_DEST>
+                                                           <option value="<TMPL_VAR NAME=TR_DEST>"><TMPL_VAR NAME=TR_DEST></option>
+                                                           </TMPL_LOOP>
+                                </select>
+                    </td>
+                </tr>    
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Class:
+                    </td>
+                    <td style="width:50%;" align="center">
+          <select id="tr_class_drop_down" name="tr_class_drop_down" class="fare_dd" >
+                  <option value="">-select-</option>
+                  <option value="xyz">xyz</option>
+                  <option value="xyz">xyz</option>
+                  <option value="xyz">xyz</option>
+                  <option value="xyz">xyz</option>
+         </select>  
+                </tr>    
+           
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Age:
+                    </td>
+                    <td style="width:50%;" align="center">
+                        <select id="age_drop_down" name="age_drop_down" class="fare_dd" >
+                                      <option value="">-select-</option>
+                                    <TMPL_LOOP NAME=AGE>
+                                   <option value="<TMPL_VAR NAME=VAR_AGE>"><TMPL_VAR NAME=VAR_AGE></option>
+                                   </TMPL_LOOP>
+                                </select>
+                    </td>
+                </tr>    
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Date
+                    </td>
+                    <td style="width:50%;" align="center">
+   <input type="text" size="2" MAXLENGTH = "2" name="lccp_day"  alt="Day" readonly="true" />
+   <input type="text" size="2" MAXLENGTH = "2" name="lccp_month"  alt="Month" readonly="true" />
+     <input type="text" size="4" MAXLENGTH = "4" name="lccp_year"  alt="year" readonly="true" />
+   
+   <script language="javascript">showdate();</script>
+  <img src ="/image/cal_1.gif" onclick="displayCalendar(document.fare_enq.lccp_day,document.fare_enq.lccp_month,document.fare_enq.lccp_year,'mm-dd-yyyy','04-23-2009',this,0,120,1,'-');"  alt="Calendar"/>
+
+                  </td>
+               
+    </tr>    
+                <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Concession:
+                    </td>
+                    <td style="width:50%;" align="center">
+                        <select id="tr_cons_drop_down" name="tr_cons_drop_down" class="fare_dd" >
+                                                         <option value="">-select-</option>
+                                                          <TMPL_LOOP NAME=TRAIN_CONS>
+                                                           <option value="<TMPL_VAR NAME=TR_CONS>"><TMPL_VAR NAME=TR_CONS></option>
+                                                           </TMPL_LOOP>
+                                </select>
+                    </td>
+                </tr>    
+             
+                   <tr style="width:100%;height: 12.5%;">
+                    <td style="width:50%;" class="fare">
+                        Number of seat :
+                    </td>
+                    <td style="width:50%;" >
+                      <input type="text" name="no_of_seat" maxlength="2" onchange="javascript:no_validation(document.reserve.no_of_seat);" required="required" style="width:70%; background-color: white; color: brown; font-size: 14px;" >
+
+                    </td>
+                </tr>    
+             
+                <tr style="width:100%;height: 12.5%;">
+                    <td colspan="2" style="width:50%;" align="center" valign="">
+                        <input type="submit" value="Submit" style="width: 30%; color:brown; font-size: 14px; ">
+                    </td>
+                </tr>    
+                
+            </table>
+                      </td></tr></table>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    
+        <div>
+            <footer style="border: 2; margin-top: 70px; border-top-style: solid; border-top-color: brown;">
+                <h10>bhavin</h10>
+            </footer>
+        </div>
+       
+</body>
+</html>

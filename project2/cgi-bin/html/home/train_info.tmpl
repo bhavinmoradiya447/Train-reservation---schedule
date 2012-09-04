@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="html">
+    <head>
+        <title>Train</title>
+        <script type="text/javascript" src="/script/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/script/jquery.js"></script>
+        <link href="/css/train.css" rel="stylesheet" type="text/css" />
+        <link rel="ICON" href="/image/favicon.ico" />
+    </head>
+
+    <body >
+
+        <div style="width:100%; height:10%;">
+            <table  style="width:100%; height:100%;"  align="left">
+                <tr style="width:100%; height:100%;"><td align="center"><image src="/image/main_header_big3_white.jpg" alr="Header"></td></tr>				
+            </table>
+            <br/>
+            <table border="1" style="width:100%; height:3%; margin-top: 10px; border-bottom-style: none;border-top-style: none;border-left-style: none; border-right-style: none; " align="left">
+                <tr style="width:100%; height:100%;" >
+                    <td  class="menu_item" align="center" style="background-color:#ffcccc;" id="home"  valign="top"><a href="/cgi-bin/home/index.cgi" ><div class="menu">Home</div></a></td>
+                    <td  class="menu_item" align="center" id="schedule"  valign="top"><a href="/cgi-bin/schedule/schedule.cgi" ><div class="menu">Schedule</div></a></td>
+                    <td  class="menu_item" align="center" id="fare"  valign="top"><a href="/cgi-bin/getfare/getfare.cgi" ><div class="menu">Get Fare</div></a></td>
+                    <td  class="menu_item" align="center" id="reserv"  valign="top"><a href="/cgi-bin/reservation/reservation.cgi" ><div class="menu">Reservation</div></a></td>
+                </tr>				
+            </table>
+
+        </div>	
+
+        <div style="width:100%; height:85%;"><br>
+            <table style="width:100%; height:95%; border-bottom-style:outset; border-color:brown; "  >
+
+                <tr ><td  style="width:15%; height:30%;  border: none; padding-top:25px;" valign="top">
+                        <table class="home_menu" style="width:100%; height:150px;" border="1">
+                            <tr style="height: 30px; color:white; background-color:brown;"><th>Information</th></tr>
+                            <tr style="height: 30px; "><td class="menu_item" align="center" style="background-color:#ffcccc;" id="train_info"  ><a href="/cgi-bin/home/index.cgi" ><div class="menu">Train Information</div></a></td></tr>
+                            <tr style="height: 30px; "><td class="menu_item" align="center"  id="seat_info"  ><a href="/cgi-bin/home/seat_availability.cgi"><div class="menu">Seat Availability</div></a></td></tr>
+                        </table>
+                    </td>
+                    <td style="width:85%; height:100%;">   
+                        <table  style=" width:95%; height:95%;   margin-top: 20px; margin-left: 20px; border-bottom-style:none;border-right-style: none;border-left-style:outset;border-top-style:outset; border-left-color: brown;border-top-color: brown; " >
+                            <tr style="height: 20%;"  border="none">
+                                <td align="center " >
+                                    <table border="1" style="width:80%; margin-left:10%;  ">
+                                        <tr style="color:white;background: brown; text-align:center; ">
+                                            <td style="width:12%; ">Train NO.</td>
+                                            <td style="width:30%; ">Train Name</td>
+                                            <td style="width:15%; ">Source</td>
+                                            <td style="width:15%; ">Destination</td>
+                                            <td style="width:28%; ">Day</td>
+
+                                        </tr><tr style="color:brown;text-align:center;  ">
+                                        <TMPL_LOOP NAME=TRAIN_INFO>
+                                            <tr style="color:brown;text-align:center;  ">
+
+                                                <td style="width:12%; "><TMPL_VAR NAME=TRAIN_NO></td>
+                                                <td style="width:30%; "><TMPL_VAR NAME=TRAIN_NAME></td>
+                                                    <td style="width:15%; "><TMPL_VAR NAME=SOURCE></td>
+                                                        <td style="width:15%; "><TMPL_VAR NAME=DESTINATION></td>
+                                                            <td style="width:28%; "><TMPL_VAR NAME=DAY></td>
+                                                                </tr>
+                                                                </TMPL_LOOP>
+
+                                                                </table>
+                                                                </td>
+                                                                </tr>
+                                                                <tr style="height: 80%;"><td>
+
+                                                                        <div style="width: 850px; height: 500px; overflow:scroll; ">
+                                                                            <table border="1" style="width:80%; margin-left:10%; ">
+                                                                                <tr style="color:white;background: brown; text-align:center; ">
+                                                                                    <td style="width:12%; ">Train NO.</td>
+                                                                                    <td style="width:30%; ">Class</td>
+                                                                                    <td style="width:30%; ">Quota</td>
+                                                                                    <td style="width:30%; ">Seat</td>
+                                                                                </tr>
+                                                                                <TMPL_LOOP NAME=TRAIN_SEAT_INFO>
+                                                                                    <tr style="color:brown;text-align:center;  ">
+                                                                                        <td style="width:12%; "><TMPL_VAR NAME=TRAIN_NO></td>
+                                                                                        <td style="width:30%; "><TMPL_VAR NAME=CLASS></td>
+                                                                                            <td style="width:30%; "><TMPL_VAR NAME=QUOTA></td>
+                                                                                                <td style="width:30%; "><TMPL_VAR NAME=SEAT></td>
+                                                                                                    </tr>
+                                                                                                    </TMPL_LOOP>
+
+
+                                                                                                    </table>
+
+                                                                                                    </div>
+
+                                                                                                    </td></tr>
+                                                                                                    </table>
+                                                                                                    </td>
+                                                                                                    </tr>
+
+                                                                                                    </table>
+
+
+                                                                                                    </div>
+                                                                                                    <footer style="color:brown; text-align:center;"><b>Thank you For using this web-site</b></footer>
+
+                                                                                                    </body>
+                                                                                                    </html>
